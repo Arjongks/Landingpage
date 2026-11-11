@@ -200,7 +200,7 @@ footer a{color:var(--gold2)}footer .dis{border-top:1px solid #1f3650;margin-top:
 <span class="gline"></span>
 <h1><span>Beyond the</span> <span class="g">Unexpected:</span> <span class="sub">Understanding Long-Term Care</span></h1>
 <p class="lede">A special online learning series to help you understand, prepare, and protect what matters most.</p>
-<div class="chips"><span class="chip">💻 Online via Zoom</span><span class="chip">📅 Wednesday, November 11</span><span class="chip">🕣 8:30 PM Eastern Time</span></div>
+<div class="chips"><span class="chip">💻 Online via Zoom</span><span class="chip">📅 Three Sessions Available</span><span class="chip">🕣 8:30 PM Eastern Time</span></div>
 <div class="zoom-cta">
   <a class="btn b1 zoom-btn" href="https://us02web.zoom.us/meeting/register/CanpzYQ9QJKPoFsO4BvNCw" target="_blank" rel="noopener noreferrer" aria-label="Come to Zoom (opens in a new tab)">Come to Zoom <span aria-hidden="true">↗</span></a>
   <p class="zoom-note">Opens Zoom in a new tab.</p>
@@ -211,7 +211,7 @@ footer a{color:var(--gold2)}footer .dis{border-top:1px solid #1f3650;margin-top:
 <div class="reg" id="register"><div class="reg-in">
 <div class="ov" id="ov" aria-hidden="false"><div class="modal" aria-labelledby="mt" tabindex="-1">
 <button class="x" id="cl" aria-label="Close registration form">&times;</button>
-<div id="formView"><p class="kick sans">Registration</p><h2 id="mt">Reserve Your Free Spot</h2><p class="intro">The session begins at <b>8:30 PM Eastern / 5:30 PM Pacific.</b></p>
+<div id="formView"><p class="kick sans">Registration</p><h2 id="mt">Reserve Your Free Spot</h2><p class="intro">Choose one session. All sessions begin at <b>8:30 PM Eastern / 5:30 PM Pacific.</b></p>
 <form id="form" novalidate>
 <div class="row2">
 <div class="f"><label class="t" for="nm">First Name <i>*</i></label><input id="nm" type="text" autocomplete="given-name" placeholder="Enter your first name" aria-describedby="nmE"><div class="err" id="nmE" role="alert"></div></div>
@@ -226,7 +226,7 @@ footer a{color:var(--gold2)}footer .dis{border-top:1px solid #1f3650;margin-top:
 <div class="f"><label class="t" for="st">State <i>*</i></label><input id="st" type="text" autocomplete="address-level1" placeholder="Enter your state"></div>
 </div>
 <div class="f"><label class="t" for="iv">Who Invited You? <i>*</i></label><input id="iv" type="text" placeholder="Enter the name of the person who invited you"></div>
-<fieldset class="f" aria-describedby="seE"><legend class="t">Your Session <i>*</i></legend><div id="opts"></div><div class="err" id="seE" role="alert"></div></fieldset>
+<fieldset class="f" aria-describedby="seE"><legend class="t">Select Your Preferred Session <i>*</i></legend><div id="opts"></div><div class="err" id="seE" role="alert"></div></fieldset>
 <p class="fine">By submitting, you are requesting registration information for this educational webinar. Any marketing communications beyond event-related updates should require separate consent.</p>
 <label class="chk"><input type="checkbox" id="pv" aria-describedby="pvE"><span>I have read the <a href="#" onclick="return false">Privacy Policy</a>. *</span></label><div class="err" id="pvE" role="alert"></div>
 <label class="chk"><input type="checkbox" id="mk"><span>(Optional) I'd like to receive occasional emails about future educational events.</span></label>
@@ -245,7 +245,8 @@ footer a{color:var(--gold2)}footer .dis{border-top:1px solid #1f3650;margin-top:
 const CONFIG={
  time:{hour:20,minute:30,label:"8:30 PM ET",zone:"America/New_York"},
  sessions:[ // offset -05:00 = EST (DST ends Nov 1, 2026)
-  {id:"nov11",iso:"2026-11-11T20:30:00-05:00"}],
+  {id:"nov11",iso:"2026-11-11T20:30:00-05:00"},
+  {id:"nov18",iso:"2026-11-18T20:30:00-05:00"},{id:"nov25",iso:"2026-11-25T20:30:00-05:00"}],
  endpoint:"https://script.google.com/macros/s/AKfycbyHCUhfyGfSeMVDtaSQFwCiV5by7h6Kx3o5H4L5jMQyjSB2ee_P-CR48o4Imsfpulpv/exec", // Google Apps Script Web App (ends in /exec)
  sponsor:{name:"Beljain Insurance Agency",contact:"[Your phone] · [Your email] · [Your website]"}
 };
@@ -254,7 +255,6 @@ CONFIG.sessions.forEach(s=>{s.weekday=fmt(s.iso,{weekday:"long"});s.month=fmt(s.
 const $=id=>document.getElementById(id);
 $("sessions").innerHTML=CONFIG.sessions.map(s=>`<div class="card sess center"><div class="w sans">${s.weekday}</div><div class="sans" style="color:var(--mut)">${s.month.toUpperCase()}</div><div class="d">${s.day}</div><div class="sans" style="margin-top:6px">${s.year} · ${CONFIG.time.label}</div><button class="btn b1 small" data-reg="${s.id}">REGISTER FOR THIS SESSION</button></div>`).join("");
 $("opts").innerHTML=CONFIG.sessions.map(s=>`<label class="opt"><input type="radio" name="se" value="${s.id}"><span><b>${s.weekday}, ${s.month} ${s.day}, ${s.year}</b><br>${CONFIG.time.label}</span></label>`).join("");
-document.querySelector("input[name=se]").checked=true;
 $("contact").textContent="Contact: "+CONFIG.sponsor.contact;
 
 const nxs=CONFIG.sessions.find(s=>new Date(s.iso)>new Date())||CONFIG.sessions[0];$("nx").innerHTML=nxs.weekday+", "+nxs.month+" "+nxs.day+"<br><span style='font-weight:400;font-size:1rem'>"+CONFIG.time.label+" · Online via Zoom</span>";
