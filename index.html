@@ -147,6 +147,14 @@ footer a{color:var(--gold2)}footer .dis{border-top:1px solid #1f3650;margin-top:
 .vis h1{font-size:clamp(2.4rem,3.8vw,4.2rem);line-height:1.04}
 @media(max-height:860px) and (min-width:901px){.vis .pair{margin-top:120px}.vis h1{font-size:clamp(2rem,3.1vw,3.2rem)}.vis .gline{margin-bottom:12px}}
 @media(max-width:900px){.vis .pair{margin:0 0 32px;justify-content:center}.vis .pp{width:128px}.vis h1{font-size:clamp(2.4rem,9vw,3.4rem)}}
+ /* ===== Zoom register button ===== */
+.zoom-cta{display:flex;flex-direction:column;align-items:flex-start;gap:8px;margin-top:22px}
+.zoom-btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 32px;-webkit-tap-highlight-color:transparent}
+.zoom-btn span{font-size:16px;letter-spacing:0}
+.zoom-note{margin:0;font:400 12px/1.4 'DM Sans',system-ui,sans-serif;color:rgba(255,255,255,.78)}
+.reg .zoom-cta{margin:0 0 26px}
+.reg .zoom-note{color:var(--mut)}
+@media(max-width:560px){.zoom-cta{align-items:stretch}.zoom-btn{width:100%}}
 /* ===== responsive ===== */
 @media(max-width:1100px){.vis{padding:0 40px 56px}.vis .logo{left:40px}.reg{padding:72px 32px 64px}}
 @media(max-width:900px){
@@ -185,6 +193,10 @@ footer a{color:var(--gold2)}footer .dis{border-top:1px solid #1f3650;margin-top:
 <h1><span>Beyond the</span> <span class="g">Unexpected:</span> <span class="sub">Understanding Long-Term Care</span></h1>
 <p class="lede">A special online learning series to help you understand, prepare, and protect what matters most.</p>
 <div class="chips"><span class="chip">💻 Online via Zoom</span><span class="chip">📅 Four Sessions Available</span><span class="chip">🕣 8:30 PM Eastern Time</span></div>
+<div class="zoom-cta">
+  <a class="btn b1 zoom-btn" href="https://us02web.zoom.us/meeting/register/CanpzYQ9QJKPoFsO4BvNCw" target="_blank" rel="noopener noreferrer" aria-label="Register on Zoom (opens in a new tab)">Register on Zoom <span aria-hidden="true">↗</span></a>
+  <p class="zoom-note">Opens Zoom’s registration page in a new tab.</p>
+</div>
 </div>
 </div>
 
